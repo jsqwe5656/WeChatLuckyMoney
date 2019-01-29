@@ -16,6 +16,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -37,11 +38,13 @@ public class MainActivity extends Activity implements AccessibilityManager.Acces
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //CrashReport.initCrashReport(getApplicationContext(), "900019352", false);
-        CrashReport.initCrashReport(getApplicationContext(), "900019352", false);
+        //初始化bugly
+        CrashReport.initCrashReport(getApplicationContext(), "d4f087e65d", false);
+
         setContentView(R.layout.activity_main);
-        pluginStatusText = (TextView) findViewById(R.id.layout_control_accessibility_text);
-        pluginStatusIcon = (ImageView) findViewById(R.id.layout_control_accessibility_icon);
+
+        pluginStatusText = findViewById(R.id.layout_control_accessibility_text);
+        pluginStatusIcon = findViewById(R.id.layout_control_accessibility_icon);
 
         handleMaterialStatusBar();
 
